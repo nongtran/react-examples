@@ -1,1 +1,5 @@
-# react-all-examples
+#Example CRUD APP:
+Class Compoment
+Function Compoment + Hook
+NextJS
+Redux
