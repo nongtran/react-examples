@@ -1,20 +1,18 @@
 {
-  "name": "react-hooks",
+  "name": "react-next",
   "version": "0.1.1",
   "private": true,
   "dependencies": {
     "gh-pages": "^2.1.1",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "next": "^9.1.3",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "react-scripts": "^3.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": "react-app"
