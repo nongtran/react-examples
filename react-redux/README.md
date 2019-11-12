@@ -1,1 +1,3 @@
-# React with Redux
+# React Redux
+
+A simple CRUD app that can add, update, or delete users
