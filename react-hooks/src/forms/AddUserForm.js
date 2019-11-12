@@ -16,7 +16,7 @@ const AddUserForm = props => {
 				event.preventDefault()
 				if (!user.name || !user.username) return
 
-				props.onddUser(user)
+				props.onAddUser(user)
 				setUser(initialFormState)
 			}}
 		>
