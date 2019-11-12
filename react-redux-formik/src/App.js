@@ -1,8 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, Suspense } from 'react'
 import { connect } from "react-redux";
 import AddUserForm from './components/users/AddUserForm'
 import EditUserForm from './components/users/EditUserForm'
 import UserTable from './components/users/UserTable'
+
+//const EditUserForm = React.lazy(() => import('./components/users/EditUserForm'));
 
 const App = (props) => {
 	return (
@@ -13,6 +15,9 @@ const App = (props) => {
 					{props.editing ? (
 						<Fragment>
 							<h2>Edit user</h2>
+							{/* <Suspense fallback={<div>Loading...</div>}>
+								<EditUserForm/>
+      						</Suspense> */}
 							<EditUserForm/>
 						</Fragment>
 					) : (
