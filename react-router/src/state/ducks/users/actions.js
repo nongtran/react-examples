@@ -1,0 +1,38 @@
+import types from "./types";
+
+let nextUserId = 0;
+
+export const addUser = user => ({
+  type: types.ADD_USER,
+  id: nextUserId++,
+  user
+});
+
+export const updateUser = (id, user) => ({
+  type: types.UPDATE_USER,
+  id,
+  user
+});
+
+export const deleteUser = id => ({
+  type: types.DELETE_USER,
+  id
+});
+
+export const editUser = (user) => ({
+  type: types.EDIT_USER,
+  user
+});
+
+export const cancelEditUser = (id) => ({
+  type: types.CANCEL_EDIT_USER,
+  id
+});
+
+export default {
+  addUser,
+  updateUser,
+  deleteUser,
+  editUser,
+  cancelEditUser
+};
