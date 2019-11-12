@@ -1,4 +1,4 @@
-# Example CRUD APP:
+# Simple CRUD APP:
 
 Class Compoment
 
