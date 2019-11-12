@@ -49,7 +49,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(usersActions.updateUser(id, user));
   },
   onCancelEditing: () => {
-    dispatch(usersActions.onCancelEditing());
+    dispatch(usersActions.cancelEditUser());
   }
 });
   
