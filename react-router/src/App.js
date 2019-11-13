@@ -7,29 +7,19 @@ const App = (props) => {
 		<div className="container">
 			<h1>CRUD App with Redux</h1>
 			<div className="flex-row">
-				<NavLink exact strict to="/users" 
+				<NavLink exact to="/users"
 					activeStyle={{
 					fontWeight: "bold",
-					color: "red"
+					fontColor: "red"
 					}} 
-					isActive={(match, location) => {
-    					if (!match) {
-      						return false;
-    					}
-					}}
 				>
 					List User
 				</NavLink>
 				<span> | </span>
-				<NavLink exact strict to="/users/add" 
+				<NavLink exact to="/users/add" 
 					activeStyle={{
 						fontWeight: "bold",
-						color: "red"
-					}}
-					isActive={(match, location) => {
-    					if (!match) {
-      						return false;
-    					}
+						fontColor: "red"
 					}}
 				>
 					Add User

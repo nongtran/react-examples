@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom'
 
 import { usersActions } from "../../state/ducks/users";
 
@@ -19,20 +20,10 @@ const ListUser = ({history, users, onEditUser, onDeleteUser}) => (
             <td>{user.name}</td>
             <td>{user.username}</td>
             <td>
-              <button
-                onClick={() => {
-                  onEditUser(user)
-                  history.push({
-                    pathname: '/users/edit',
-                    state: { 
-                      user: user
-                    }
-                  })
-                }}
-                className="button muted-button"
-              >
+              <Link to={`/users/edit/${user.id}`} className="button muted-button">
                 Edit
-              </button>
+              </Link>
+              
               <button
                 onClick={() => {
                   onDeleteUser(user.id)

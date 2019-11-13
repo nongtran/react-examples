@@ -18,13 +18,11 @@ class Routes extends Switch {
       />
       <Route
         path="/users/add"
-        exact
         component={AddUser}
         props={this.props}
       />
       <Route
-        path="/users/edit"
-        exact
+        path="/users/edit/:id"
         component={EditUser}
         props={this.props}
       />
