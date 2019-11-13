@@ -44,7 +44,11 @@ const EditUser = props => {
 					<ErrorMessage name="username" />
 					<label></label>
 					<button>Update user</button>
-					<button onClick={() => props.onCancelEditing()} className="button muted-button">
+					<button onClick={() => {
+						props.onCancelEditing()
+						router.push('/users')
+						}} 
+						className="button muted-button">
 						Cancel
 					</button>
 				</Form>

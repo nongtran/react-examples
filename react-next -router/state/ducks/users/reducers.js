@@ -18,6 +18,7 @@ const usersData = [
 const initialFormState = { id: null, name: '', username: '' }
 
 const intialState = {
+  nextUserId: 3,
   usersData: usersData,
   currentUser: initialFormState,
   editing: false
@@ -26,7 +27,11 @@ const intialState = {
 const usersCRUD = (state = intialState, action) => {
   switch (action.type) {
     case types.ADD_USER:
-      return {...state, editing: false, usersData: [...state.usersData, action.user]};
+      
+      return {...state, editing: false, 
+          nextUserId:  state.nextUserId + 1, 
+          usersData: [...state.usersData, {...action.user, id: (state.nextUserId + 1).toString()}]
+        };
 
     case types.DELETE_USER:
       return {...state, editing: false, usersData: state.usersData.filter(user => user.id !== action.id)};

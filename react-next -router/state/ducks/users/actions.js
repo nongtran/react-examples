@@ -1,10 +1,7 @@
 import types from "./types";
 
-let nextUserId = 0;
-
 export const addUser = user => ({
   type: types.ADD_USER,
-  id: nextUserId++,
   user
 });
 
