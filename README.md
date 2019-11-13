@@ -1,8 +1,8 @@
 # Simple CRUD APP:
 
-Class Compoment
+Hook
 
-Function Compoment + Hook
+Formik + Yup
 
 NextJS
 
