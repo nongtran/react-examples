@@ -1,45 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { withRedux } from '../../lib/redux'
 
-const UserTable = props => (
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Username</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {props.users.length > 0 ? (
-        props.users.map(user => (
-          <tr key={user.id}>
-            <td>{user.name}</td>
-            <td>{user.username}</td>
-            <td>
-              <button
-                onClick={() => {
-                  props.onEditUser(user)
-                }}
-                className="button muted-button"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => props.onDeleteUser(user.id)}
-                className="button muted-button"
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        ))
-      ) : (
-        <tr>
-          <td colSpan={3}>No users</td>
-        </tr>
-      )}
-    </tbody>
-  </table>
+import ListUser from '../../components/users/ListUser'
+
+const ListUserPage = props => (
+  <ListUser></ListUser>
 )
 
-export default UserTable
+ListUserPage.getInitialProps = ({ reduxStore }) => {
+  
+  const { dispatch } = reduxStore
+
+  return {}
+}
+
+export default withRedux(ListUserPage)

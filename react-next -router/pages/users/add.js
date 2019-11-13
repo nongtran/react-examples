@@ -1,32 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
+import AddUser from '../../components/users/AddUser'
+import { withRedux } from '../../lib/redux'
 
-const AddUserForm = props => {
-	const initialFormState = { id: null, name: '', username: '' }
-	const [ user, setUser ] = useState(initialFormState)
+const AddUserPage = props => (
+	<AddUser></AddUser>
+)
 
-	const handleInputChange = event => {
-		const { name, value } = event.target
+AddUserPage.getInitialProps = ({ reduxStore }) => {
 
-		setUser({ ...user, [name]: value })
-	}
+	const { dispatch } = reduxStore
 
-	return (
-		<form
-			onSubmit={event => {
-				event.preventDefault()
-				if (!user.name || !user.username) return
-
-				props.onddUser(user)
-				setUser(initialFormState)
-			}}
-		>
-			<label>Name</label>
-			<input type="text" name="name" value={user.name} onChange={handleInputChange} />
-			<label>Username</label>
-			<input type="text" name="username" value={user.username} onChange={handleInputChange} />
-			<button>Add new user</button>
-		</form>
-	)
+	return {}
 }
 
-export default AddUserForm
+export default withRedux(AddUserPage)

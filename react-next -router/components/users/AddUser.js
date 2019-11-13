@@ -1,39 +1,44 @@
-import React from 'react'
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
 import { connect } from "react-redux";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
 import { usersActions } from "../../state/ducks/users";
+
 
 const AddUser = props => {
 	const initialFormState = { id: null, name: '', username: '' }
 
 	const validationSchema = Yup.object().shape({
 		name: Yup.string()
-		  .required('Required'),
+			.required('Required'),
 		username: Yup.string()
-		  .required('Required'),
-	  });
+			.required('Required'),
+	});
+
+	const router = useRouter()
+
+	useEffect(() => {
+		router.prefetch('/users')
+	})
 
 	return (
 		<Formik
-			initialValues = {initialFormState}
-			validationSchema = {validationSchema}
-			onSubmit = {(values, {resetForm} ) => {
+			initialValues={initialFormState}
+			validationSchema={validationSchema}
+			onSubmit={(values, { resetForm }) => {
 				props.onAddUser(values)
-				props.history.push({
-                    pathname: '/users'
-                })
-				resetForm(initialFormState)
+				router.push('/users')
+
 			}}
-			>
+		>
 			{({ errors, touched }) => (
 				<Form>
 					<label>Name</label>
-					<Field name="name"/>
+					<Field name="name" />
 					<ErrorMessage name="name" />
 					<label>Username</label>
-					<Field name="username"/>
+					<Field name="username" />
 					<ErrorMessage name="username" />
 					<label></label>
 					<button>Add new user</button>
@@ -44,14 +49,14 @@ const AddUser = props => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-	
+
 });
-  
+
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	onAddUser: (user) =>{
+	onAddUser: (user) => {
 		dispatch(usersActions.addUser(user));
 	}
 });
-  
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddUser);
