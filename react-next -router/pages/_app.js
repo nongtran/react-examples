@@ -1,6 +1,7 @@
 import React from 'react'
 import App from 'next/app'
 import Link from 'next/link';
+import {appWithTranslation} from '../i18n'
 
 class MyApp extends App {
     // Only uncomment this method if you have blocking data requirements for
@@ -40,4 +41,4 @@ class MyApp extends App {
     }
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

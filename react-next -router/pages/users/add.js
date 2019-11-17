@@ -2,15 +2,23 @@ import React from 'react'
 import AddUser from '../../components/users/AddUser'
 import { withRedux } from '../../lib/redux'
 
+import i18n, { withTranslation } from '../../i18n'
+
 const AddUserPage = props => (
-	<AddUser></AddUser>
+	<div>
+		currentLanguage: {props.currentLanguage}
+	
+		<AddUser></AddUser>
+	</div>
 )
 
-AddUserPage.getInitialProps = ({ reduxStore }) => {
+AddUserPage.getInitialProps = ({ reduxStore, req }) => {
 
 	const { dispatch } = reduxStore
 
-	return {}
+	const currentLanguage = req ? req.language : i18n.language
+
+	return {currentLanguage}
 }
 
-export default withRedux(AddUserPage)
+export default withRedux(withTranslation('add_user')(AddUserPage))

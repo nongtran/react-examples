@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import * as Yup from 'yup';
 import { usersActions } from "../../state/ducks/users";
 
+import { withTranslation } from '../../i18n'
 
 const AddUser = props => {
 	const initialFormState = { id: null, name: '', username: '' }
@@ -34,14 +35,14 @@ const AddUser = props => {
 		>
 			{({ errors, touched }) => (
 				<Form>
-					<label>Name</label>
+					<label>{props.t('name')}</label>
 					<Field name="name" />
 					<ErrorMessage name="name" />
-					<label>Username</label>
+					<label>{props.t('user_name')}</label>
 					<Field name="username" />
 					<ErrorMessage name="username" />
 					<label></label>
-					<button>Add new user</button>
+					<button>{props.t('add_new_user')}</button>
 				</Form>
 			)}
 		</Formik>
@@ -59,4 +60,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddUser);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation('add_user')(AddUser));
