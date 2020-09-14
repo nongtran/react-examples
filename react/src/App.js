@@ -99,6 +99,15 @@ class App extends React.Component {
         <h1>CRUD App</h1>
         <div className="flex-row">
           <div className="flex-large">
+            <h2>View users</h2>
+            <button onClick={this.onInserting}>Add new user</button>
+            <UserTable
+              users={this.state.users}
+              onEditUser={this.editUser}
+              onDeleteUser={this.deleteUser}
+            />
+          </div>
+          <div className="flex-large">
             {this.state.editing && (
               <Fragment>
                 <h2>Edit user</h2>
@@ -127,15 +136,6 @@ class App extends React.Component {
                 </Suspense>
               </Fragment>
             )}
-          </div>
-          <div className="flex-large">
-            <h2>View users</h2>
-            <button onClick={this.onInserting}>Add new user</button>
-            <UserTable
-              users={this.state.users}
-              onEditUser={this.editUser}
-              onDeleteUser={this.deleteUser}
-            />
           </div>
         </div>
       </div>
