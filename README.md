@@ -1,9 +1,5 @@
 # Simple CRUD APP:
-
-Hook
-
+React, React Hooks
 Formik + Yup
-
+Redux, React-Redux
 NextJS
-
-Redux
