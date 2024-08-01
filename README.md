@@ -1,5 +1,5 @@
-# Simple CRUD APP
-React, React Hooks,
-Formik + Yup,
-Redux, React-Redux,
-NextJS
+# React Examples
+1. React Hooks,
+2. Formik + Yup,
+3. Redux, React-Redux,
+4. NextJS
